@@ -6,7 +6,7 @@ def getRemainingValues(arr):
     return list(values - set(values))
 
 # 1-9 no duplicates
-def isValidSet(arr):
+def isValidSudokuSet(arr):
     return set(arr) == {1, 2, 3, 4, 5, 6, 7, 8, 9} and len(arr) == 9
 
 # -----------------------

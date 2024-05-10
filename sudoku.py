@@ -1,5 +1,6 @@
 from games import *
 from search import *
+from utils import *
 
 # TODO: try other algorithms to find the best one
 # TODO: bigger board?
@@ -45,16 +46,15 @@ class Sudoku(Problem):
         return state == self.goal
     
     def is_valid_move(self, state, i, j, num):
-        """Check if placing the given number in the cell (i, j) is a valid move."""
-        # Check if the number is not already in the same row, column, or 2x2 square
+        """Check if placing the given number in the cell (i, j) is a valid move.
+        Check if the number is not already in the same row, column, or 2x2 square"""
         return (
             not any(num == state[i][col] for col in range(4)) and # checks rows
             not any(num == state[row][j] for row in range(4)) and # checks column
             not any(num == state[row][col] for row in range(i//2*2, i//2*2+2) # checks 2x2 square through integer division
                     for col in range(j//2*2, j//2*2+2))
         )
-    
-# sudoku_instance = Sudoku()
+
 if __name__ == '__main__':
     sudoku_instance = Sudoku()
     # Get the current state from the Sudoku instance
