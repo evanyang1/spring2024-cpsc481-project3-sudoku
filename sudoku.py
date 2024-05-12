@@ -6,15 +6,28 @@ from utils import *
 # TODO: bigger board?
 
 # goal can be empty node set
-# goal state would be no 0s in the board 
-    # still have to follow the rules of sudoku
-    # check whether goal state is right or wrong
+
 
 # avoid defining the goal state
 
 # COULD backtracking to solve it
+
 # create own dfs
+
+
+# ----------------------------------------------------------------
+# PROFESSOR FEEDBACK #
 # remove goal parameter
+# instead, create a function to check, each and every list does not have 0s, and matches sudoku rules
+# goal state would be no 0s in the board 
+    # still have to follow the rules of sudoku
+    # check whether goal state is right or wrong
+# skip giving goal state, because easier to generate action
+# do it each cell by cell or block by block
+# goal can be empty node set
+# goal state would be no 0s in the board 
+    # still have to follow the rules of sudoku
+    # check whether goal state is right or wrong
 # instead, create a function to check, each and every list does not have 0s, and matches sudoku rules
 
 class Sudoku(Problem):
