@@ -3,17 +3,8 @@ from search import *
 from utils import *
 
 # TODO: try other algorithms to find the best one
-# TODO: bigger board?
-
-# goal can be empty node set
-
-
-# avoid defining the goal state
-
 # COULD backtracking to solve it
-
 # create own dfs
-
 
 # ----------------------------------------------------------------
 # PROFESSOR FEEDBACK #
@@ -31,9 +22,17 @@ from utils import *
 # instead, create a function to check, each and every list does not have 0s, and matches sudoku rules
 
 class Sudoku(Problem):
-    def __init__(self, initial=[[1,2,0,4],[4,0,0,1],[2,0,1,3],[0,0,4,0]], goal=[[1,2,3,4],[4,3,2,1],[2,4,1,3],[3,1,4,2]]):
+    def __init__(self, initial=[[0,0,0,1,0,0,2,0,4],
+                                [0,0,7,5,8,6,9,1,3],
+                                [0,1,0,3,0,0,0,0,7],
+                                [0,3,0,6,5,0,4,7,9],
+                                [0,0,8,7,0,3,0,6,2],
+                                [0,0,0,2,0,0,5,0,8],
+                                [8,7,0,0,0,0,0,0,0],
+                                [0,4,9,0,1,0,0,2,0],
+                                [2,5,0,4,0,0,8,9,0]]):
         """ Define goal state and initialize a problem """
-        super().__init__(initial, goal)
+        super().__init__(initial)
 
     def actions(self,state):
         """Return a list of possible actions (i.e., possible numbers to fill in)
