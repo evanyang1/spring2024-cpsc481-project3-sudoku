@@ -1,9 +1,9 @@
-
-# Example: arr = [1, 3, 4, 5, 6, 7, 8, 9]
-# => [2]
+# Example: arr = [0,0,7,0,0,0,3,0,4]
+# => [1,2,5,6,8,9]
 def getRemainingValues(arr):
+    list(filter(lambda x: x != 0, arr))
     values = {1,2,3,4,5,6,7,8,9}
-    return list(values - set(values))
+    return list(values - set(arr))
 
 # 1-9 no duplicates
 def isValidFullSudokuSet(arr):
