@@ -2,6 +2,8 @@ from games import *
 from search import *
 from utils import *
 
+GRID_DIMENSION = 9
+
 # TODO: try other algorithms to find the best one
 # COULD backtracking to solve it
 # create own dfs
@@ -38,10 +40,10 @@ class Sudoku(Problem):
         """Return a list of possible actions (i.e., possible numbers to fill in)
         for empty cells in the Sudoku grid."""
         actions = []
-        for i in range(4):
-            for j in range(4):
+        for i in range(GRID_DIMENSION):
+            for j in range(GRID_DIMENSION):
                 if state[i][j] == 0:  # If the cell is empty
-                    for num in range(1, 5):  # Try numbers 1 to 4
+                    for num in range(1, GRID_DIMENSION + 1): 
                         if self.is_valid_move(state, i, j, num):
                             actions.append((i, j, num))
         return actions
@@ -52,18 +54,14 @@ class Sudoku(Problem):
         new_state = [row[:] for row in state]  # Copy the current state
         new_state[i][j] = num  # Place the number in the cell
         return new_state
-
-    def goal_test(self, state):
-        # edit this
-        return state == self.goal
     
     def is_valid_move(self, state, i, j, num):
         """Check if placing the given number in the cell (i, j) is a valid move.
-        Check if the number is not already in the same row, column, or 2x2 square"""
+        Check if the number is not already in the same row, column, or 3x3 square"""
         return (
-            not any(num == state[i][col] for col in range(4)) and # checks rows
-            not any(num == state[row][j] for row in range(4)) and # checks column
-            not any(num == state[row][col] for row in range(i//2*2, i//2*2+2) # checks 2x2 square through integer division
+            not any(num == state[i][col] for col in range(GRID_DIMENSION)) and # checks rows
+            not any(num == state[row][j] for row in range(GRID_DIMENSION)) and # checks column
+            not any(num == state[row][col] for row in range(i//3*3, i//3*3+2) # checks 2x2 square through integer division
                     for col in range(j//2*2, j//2*2+2))
         )
 
