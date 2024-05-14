@@ -1,15 +1,15 @@
 # Example: arr = [0,0,7,0,0,0,3,0,4]
 # => [1,2,5,6,8,9]
-def getRemainingValues(arr):
+def get_remaining_values(arr):
     list(filter(lambda x: x != 0, arr))
     values = {1,2,3,4,5,6,7,8,9}
     return list(values - set(arr))
 
 # 1-9 no duplicates
-def isValidFullSudokuSet(arr):
+def is_valid_full_sudoku_set(arr):
     return set(arr) == {1, 2, 3, 4, 5, 6, 7, 8, 9} and len(arr) == 9
 
-def hasNoDuplicates(arr):
+def has_no_duplicates(arr):
     return len(arr) != len(set(arr))
 
 # -----------------------

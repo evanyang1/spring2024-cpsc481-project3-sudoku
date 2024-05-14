@@ -61,8 +61,8 @@ class Sudoku(Problem):
         return (
             not any(num == state[i][col] for col in range(GRID_DIMENSION)) and # checks rows
             not any(num == state[row][j] for row in range(GRID_DIMENSION)) and # checks column
-            not any(num == state[row][col] for row in range(i//3*3, i//3*3+2) # checks 2x2 square through integer division
-                    for col in range(j//2*2, j//2*2+2))
+            not any(num == state[row][col] for row in range(i//3*3, i//3*3+3) # checks 2x2 square through integer division
+                    for col in range(j//3*3, j//3*3+3))
         )
 
 if __name__ == '__main__':
