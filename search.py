@@ -213,7 +213,7 @@ def depth_first_tree_search(problem):
     return None
 
 
-def depth_first_graph_search(problem):
+def depth_first_graph_search(problem, display = False):
     """
     [Figure 3.7]
     Search the deepest nodes in the search tree first.
@@ -230,9 +230,11 @@ def depth_first_graph_search(problem):
         node = frontier.pop()
         if problem.goal_test(node.state):
             # ADDED:
+            print("goal state reached:", node.state)
             print(len(explored), "paths have been expanded and", len(frontier), "paths remain in the frontier")
             return node
-        print(len(explored), node.state)
+        if display:
+            print("action", len(explored), node.state)
         explored.append(node.state)
         # ADDED: prints length of explore
         # print(len(explored))
@@ -266,7 +268,7 @@ def breadth_first_graph_search(problem):
     return None
 
 
-def best_first_graph_search(problem, f, display=False):
+def best_first_graph_search(problem, f, display = False):
     """Search the nodes with the lowest f scores first.
     You specify the function f(node) that you want to minimize; for example,
     if f is a heuristic estimate to the goal, then we have greedy best
@@ -278,14 +280,17 @@ def best_first_graph_search(problem, f, display=False):
     node = Node(problem.initial)
     frontier = PriorityQueue('min', f)
     frontier.append(node)
-    explored = set()
+    # turned to list
+    explored = []
     while frontier:
         node = frontier.pop()
         if problem.goal_test(node.state):
-            if display:
-                print(len(explored), "paths have been expanded and", len(frontier), "paths remain in the frontier")
+            print("goal state reached: ", node.state)
+            print(len(explored), "paths have been expanded and", len(frontier), "paths remain in the frontier")
             return node
-        explored.add(node.state)
+        if display:
+            print("action", len(explored), node.state)
+        explored.append(node.state)
         for child in node.expand(problem):
             if child.state not in explored and child not in frontier:
                 frontier.append(child)
@@ -421,7 +426,7 @@ greedy_best_first_graph_search = best_first_graph_search
 # Greedy best-first search is accomplished by specifying f(n) = h(n).
 
 
-def astar_search(problem, h=None, display=False):
+def astar_search(problem, h=None, display = False):
     """A* search is best-first graph search with f(n) = g(n)+h(n).
     You need to specify the h function when you call astar_search, or
     else in your Problem subclass."""
