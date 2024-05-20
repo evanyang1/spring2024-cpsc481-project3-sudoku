@@ -234,7 +234,7 @@ def depth_first_graph_search(problem, display = False):
             print(len(explored), "paths have been expanded and", len(frontier), "paths remain in the frontier")
             return node
         if display:
-            print("action", len(explored), node.state)
+            print("action", len(explored), ":", node.state)
         explored.append(node.state)
         # ADDED: prints length of explore
         # print(len(explored))
@@ -289,7 +289,7 @@ def best_first_graph_search(problem, f, display = False):
             print(len(explored), "paths have been expanded and", len(frontier), "paths remain in the frontier")
             return node
         if display:
-            print("action", len(explored), node.state)
+            print("action", len(explored), ":", node.state)
         explored.append(node.state)
         for child in node.expand(problem):
             if child.state not in explored and child not in frontier:

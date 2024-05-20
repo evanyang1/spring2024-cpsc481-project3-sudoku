@@ -99,11 +99,11 @@ if __name__ == '__main__':
 
     # If experiencing None type error, ensure your initial state is correct
     # If you want to see the actions taken, set display to True
-    print("DFS Solution:", depth_first_graph_search(sudoku_instance).solution()) 
+    print("DFS Solution:", depth_first_graph_search(sudoku_instance, display=True).solution()) 
     print("")
-    print("BestFS Solution:", best_first_graph_search(sudoku_instance, heuristic_sudoku_empty_cells).solution())
+    print("BestFS Solution:", best_first_graph_search(sudoku_instance, heuristic_sudoku_empty_cells,display=True).solution())
     print("")
-    print("AStar Solution:", astar_search(sudoku_instance, h=heuristic_sudoku_empty_cells).solution())
+    print("AStar Solution:", astar_search(sudoku_instance, h=heuristic_sudoku_empty_cells, display=False).solution())
     print("")
     
 
