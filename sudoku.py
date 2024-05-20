@@ -3,6 +3,9 @@ from search import *
 from utils import *
 import math
 
+# Connie Zhu, Evan Ng, Evan Yang
+# Spring 2024 CPSC 481
+
 # Change if you want :)
 GRID_DIMENSION = 9
 

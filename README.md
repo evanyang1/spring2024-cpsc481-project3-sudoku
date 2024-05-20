@@ -1,4 +1,5 @@
 # Spring 2024 CPSC 481 Project 3 Sudoku AI
+Connie Zhu, Evan Ng, Evan Yang
 
 This program solves a sudoku puzzle. You may choose the grid dimension whether it is 4 or 9. 
 
